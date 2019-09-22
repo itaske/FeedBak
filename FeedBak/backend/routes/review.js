@@ -7,7 +7,8 @@ router.get('/', function(req, res, next) {
 
     console.log("Started review");
     let reviews=Review.reviews;
-
+    if(reviews===undefined)
+        reviews=[];
         res.render("review.ejs",{reviews:reviews,productId:req.query.id});
         next();
 

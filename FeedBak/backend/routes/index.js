@@ -14,7 +14,8 @@ const reviews=[{id:1,title:"Review 1",summary:"This is review 1"},{id:2,title:"R
 router.get('/', function(req, res, next) {
     let products=Product.products;
     let reviews=Review.reviews;
-
+     if(reviews===undefined)
+         reviews=[];
     res.render('index.ejs',{reviews:reviews, products:products});
 
   next();
